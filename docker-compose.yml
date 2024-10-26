@@ -1,0 +1,13 @@
+services:
+  angular:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/usr/src/app            # Monta la carpeta de trabajo para tener acceso en tiempo real
+      - /usr/src/app/node_modules  # Evita que se monten los módulos de Node.js
+    ports:
+      - '4200:4200'               # Mapea el puerto de Angular para acceso local
+    environment:
+      - CHOKIDAR_USEPOLLING=true  # Configura Angular para detectar cambios en entornos de contenedor
+      - NG_CLI_ANALYTICS=false

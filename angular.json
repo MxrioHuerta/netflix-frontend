@@ -102,5 +102,8 @@
       }
     }
   },
-  "defaultProject": "netflix-frontend"
+  "defaultProject": "netflix-frontend",
+  "cli": {
+    "analytics": false
+  }
 }
