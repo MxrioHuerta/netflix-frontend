@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfig: {
+    apiKey: "AIzaSyASG-US6kQWxubTWm_lkwXAwV2R2Ym1rsg",
+    authDomain: "netflix-mario-huerta.firebaseapp.com",
+    projectId: "netflix-mario-huerta",
+    storageBucket: "netflix-mario-huerta.appspot.com",
+    messagingSenderId: "715401499209",
+    appId: "1:715401499209:web:2d250dfb0870e4551c6598"
+  }
 };
 
 /*

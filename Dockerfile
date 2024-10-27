@@ -8,12 +8,11 @@ RUN npm install
 # Instala las dependencias de Angular globalmente
 RUN npm install -g @angular/cli@12
 
-#Install clerk for angular
-RUN npm install @clerk/clerk-js
+#Install firebase and angular/fire to authenticate with firebase
+RUN npm install -g firebase@7 @angular/fire@6.1.5
 
 # Install tailwindcss
 RUN npm install tailwindcss
-
 
 # Configura el directorio de trabajo dentro del contenedor
 WORKDIR /usr/src/app
