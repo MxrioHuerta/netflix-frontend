@@ -11,6 +11,5 @@ services:
     environment:
       - CHOKIDAR_USEPOLLING=true  # Configura Angular para detectar cambios en entornos de contenedor
       - NG_CLI_ANALYTICS=false
-      - CLERK_FRONTEND_API_KEY=${CLERK_FRONTEND_API_KEY}
       - THE_MOVIE_DB_API_KEY=${THE_MOVIE_DB_API_KEY}
 
