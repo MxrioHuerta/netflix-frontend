@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LoginComponent } from '../../../../../Netflix-Clone-Angular/src/app/components/login/login.component';
+import { LoginComponent } from 'src/app/components/login/login.component';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;

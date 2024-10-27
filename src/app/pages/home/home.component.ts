@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { Movie } from '../../../../../Netflix-Clone-Angular/src/app/interfaces/movies';
-import { MoviesService } from '../../../../../Netflix-Clone-Angular/src/app/services/movies.service';
-import { UserService } from '../../../../../Netflix-Clone-Angular/src/app/services/user.service';
+import { Movie } from 'src/app/interfaces/movies';
+import { MoviesService } from 'src/app/services/movies.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-home',
