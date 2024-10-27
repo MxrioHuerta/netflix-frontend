@@ -1,18 +1,28 @@
-<app-header></app-header>
-<div class="absolute">
-  <img src="https://assets.nflxext.com/ffe/siteui/vlv3/dace47b4-a5cb-4368-80fe-c26f3e77d540/becb4b4a-fa87-47ab-b92b-aae2c1c6d6f7/SG-en-20231023-popsignuptwoweeks-perspective_alpha_website_small.jpg" alt="">
-</div>
-<div class="w-full md:w-3/12 absolute right-0 left-0 p-12 bg-black my-36 mx-auto text-white rounded-lg bg-opacity-80">
-  <h1 class="font-bold text-3xl py-4">Netflix Sign In</h1>
-  <div id="google-btn">
-  <div *ngIf="auth.user | async as user; else loginButton">
-    <p>Welcome, {{ user.displayName }}!</p>
-    <button (click)="logout()">Logout</button>
+<section class="login">
+  <div class="container">
+    <h3 class="text-white text-center p-4 mb-4 fw-bold">Login</h3>
+    <form novalidate [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label class="form-label text-white fw-bold">* Email</label>
+        <input type="text" class="form-control" placeholder="Introduce your email" formControlName="email" autocomplete="off">
+        <span class="helper-text text-white" data-error="wrong" data-success="right">* Email is required</span>
+      </div>
+      <div class="mb-3">
+        <label class="form-label text-white fw-bold">* Password</label>
+        <input type="password" class="form-control" placeholder="Introduce your password" formControlName="password" help="La contraseña debe tener minimo 8 caracteres" autocomplete="off">
+        <span class="helper-text text-white" data-error="wrong" data-success="right">* Password is required. Minium length 6 characters</span>
+      </div>
+      <div class="buttons mb-3">
+        <input class="btn btn-danger sign-in" [disabled]="!formLogin.valid" type="submit" value="Login">
+        <p class="text-white text-center text-uppercase fw-bold">Or</p>
+        <button class="btn btn-warning fw-bold" (click)="onClick()">Login With <i class="fab fa-google ms-1"></i></button>
+      </div>
+      <div class="register">
+        <h5 class="text-white text-center fw-bold">No GOOGLE account or not a member?</h5>
+        <a class="btn btn-primary d-flex justify-content-center register" routerLink="/register">Create account</a>
+      </div>
+    </form>
   </div>
-  <ng-template #loginButton>
-    <button (click)="login()">Login with Google</button>
-  </ng-template>
-  </div>
-</div>
+</section>
 
-
+<!-- [disabled]="!formLogin.valid" -->

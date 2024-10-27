@@ -7,7 +7,8 @@ RUN npm install
 
 # Instala las dependencias de Angular globalmente
 RUN npm install -g @angular/cli@14
-RUN npm install firebase @angular/fire --save
+RUN npm install firebase@^9.0.0 @angular/fire@7.3.0
+
 
 # Configura el directorio de trabajo dentro del contenedor
 WORKDIR /usr/src/app
