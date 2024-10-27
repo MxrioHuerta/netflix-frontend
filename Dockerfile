@@ -12,7 +12,10 @@ RUN npm install -g @angular/cli@12
 RUN npm install -g firebase@7 @angular/fire@6.1.5
 
 # Install tailwindcss
-RUN npm install tailwindcss
+RUN npm install -D tailwindcss postcss@^8 autoprefixer@^10
+
+# Initialize tailwindcss
+RUN npx tailwindcss init
 
 # Configura el directorio de trabajo dentro del contenedor
 WORKDIR /usr/src/app

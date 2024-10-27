@@ -6,33 +6,27 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
-// import {LoginComponent} from "./login/login.component";
-
-
-console.log('environment', environment.firebaseConfig);
+import {LoginComponent} from "./pages/login/login.component";
+import { BrowseComponent } from './pages/browse/browse.component';
+import { HeaderComponent } from './core/components/header/header.component';
+import { BannerComponent } from './core/components/banner/banner.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    // LoginComponent
+    LoginComponent,
+    BrowseComponent,
+    HeaderComponent,
+    BannerComponent
   ],
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp({
-      apiKey: "AIzaSyASG-US6kQWxubTWm_lkwXAwV2R2Ym1rsg",
-      authDomain: "netflix-mario-huerta.firebaseapp.com",
-      projectId: "netflix-mario-huerta",
-      storageBucket: "netflix-mario-huerta.appspot.com",
-      messagingSenderId: "715401499209",
-      appId: "1:715401499209:web:2d250dfb0870e4551c6598"
-    }),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
-  providers: [
-    // LoginService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
