@@ -1,3 +1,14 @@
+.register {
+  overflow: auto;
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .register::before {
   content: "";
   position: fixed;
@@ -20,74 +31,14 @@
   filter: blur(4px);
 }
 
-
-.register-text {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 52%;
-  margin: auto;
-  margin-top: 30px;
-  max-width: 350px;
-}
-
-.register {
-  overflow: auto;
-  position: relative;
-  min-height: 100vh;
-  backdrop-filter: blur(5px);
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-image: url(../../../assets/images/login-background.jpg);
-  .container {
-    padding-top: 6%;
-    width: 20%;
-    min-width: 325px;
-  }
-  .btn {
-    padding: 7px 20px;
-    color: white;
-    &:hover {
-      font-weight: bold;
-    }
-  }
-
-  .btn {
-    padding: 7px 20px;
-    color: white;
-    &:hover {
-      font-weight: bold;
-    }
-  }
-
-  span {
-    &.helper-text {
-      font-size: 11px;
-    }
-  }
-  p {
-    &.login {
-      margin-top: 10px;
-      font-size: 20px;
-      text-transform: capitalize;
-    }
-  }
-
-  .sign-up {
-      font-size: 18px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-  }
+.helper-text {
+  font-size: 11px;
 }
 
 .register-container {
   background-color: rgba(14, 14, 14, 0.7);
   border-radius: 2rem;
+  padding-top: 6%;
+  width: 20%;
+  min-width: 325px;
 }

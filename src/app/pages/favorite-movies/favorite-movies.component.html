@@ -1,15 +1,20 @@
 <app-navbar></app-navbar>
-<div class="movies-container mt-8 pt-2">
+<div class="movies-container pt-2">
   <h2>My Favorite Movies</h2>
-  <div class="movie-card" *ngFor="let movie of favoriteMovies">
-    <img [src]="movie.posterPath" [alt]="movie.title" class="poster" />
-    <div class="movie-info">
-      <h3 class="title">{{ movie.title }}</h3>
-      <p class="overview">{{ movie.overview }}</p>
-      <div class="buttons">
-        <button (click)="removeFromFavorites(movie.movieId)" class="btn btn-danger m-1">Quitar de la lista</button>
-        <button (click)="viewDetails(movie.movieId)" class="btn btn-m btn-warning m-1">Ver detalles</button>
+  <div class="container text-center">
+    <div class="row justify-content-center">
+      <div class="movie-card col-3 px-0" *ngFor="let movie of favoriteMovies">
+        <img [src]="movie.posterPath" [alt]="movie.title" class="poster" />
+        <div class="movie-info">
+          <h3 class="title">{{ movie.title }}</h3>
+          <p class="overview">{{ movie.overview }}</p>
+          <div class="buttons">
+            <button (click)="removeFromFavorites(movie.movieId)" class="btn btn-danger m-1">Quitar de la lista</button>
+            <a class="btn btn-m btn-warning m-1" routerLink="/movie/{{movie.movieId}}">See details</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
 </div>

@@ -1,12 +1,14 @@
-<div class="container p-2">
+<div class="container">
   <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
     <div class="row">
-      <div class="mb-3 col-lg-10">
+      <div class="mb col-lg-10">
         <input type="text" class="form-control" formControlName="movieName"
           placeholder="Search a movie...">
       </div>
       <div class="col-lg-2">
-        <button class="btn btn-danger">Search</button>
+        <button class="btn btn-outline-danger">
+          <i class="fa-solid fa-search"></i>
+        </button>
       </div>
     </div>
   </form>

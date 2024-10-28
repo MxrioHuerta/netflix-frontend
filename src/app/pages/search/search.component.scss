@@ -1,5 +1,5 @@
 $color_1: #ffffff;
-$background-color_1: #E50914;
+$background-color_1: rgba(229, 10, 21, 0.95);
 
 button {
   &:hover {
@@ -20,8 +20,18 @@ h5 {
   margin: 0 auto;
 }
 
-@media only screen and (max-width: 991px) {
-  .container {
-    padding-top: 230px !important;
+.form-control {
+  background-color: #0000;
+  color: white;
+  &:focus {
+    border-color: #7a050b;
+    box-shadow: 0 0 0 .25rem rgba(229, 10, 21, 0.25)
   }
 }
+
+
+//@media only screen and (max-width: 991px) {
+//  .container {
+//    padding-top: 230px !important;
+//  }
+//}

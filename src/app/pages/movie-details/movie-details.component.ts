@@ -48,7 +48,6 @@ export class MovieDetailsComponent implements OnInit {
           this.getMovieVideoResult = element.key;
         }
       });
-
     });
   }
 

@@ -8,11 +8,6 @@ import {FavoritesMovies} from "../../interfaces/favorites-movies";
 })
 export class FavoriteMoviesComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
   favoriteMovies: FavoritesMovies[] = [
     {
       userId: '1',
@@ -31,14 +26,27 @@ export class FavoriteMoviesComponent implements OnInit {
     // Agrega más películas aquí
   ];
 
+  constructor() {
+
+
+  }
+
+  ngOnInit(): void {
+  }
+
+
   removeFromFavorites(movieId: string) {
     this.favoriteMovies = this.favoriteMovies.filter(movie => movie.movieId !== movieId);
     console.log(`Removed movie with ID: ${movieId}`);
+
+
   }
 
-  viewDetails(movieId: string) {
-    console.log(`Viewing details for movie with ID: ${movieId}`);
-    // Aquí puedes redirigir a una página de detalles o mostrar un modal
+  showFavoriteMovies(userId: string) {
+    console.log();
+  }
+  getMovieDetails(movieId: string) {
+    console.log(`Getting details for movie with ID: ${movieId}`);
   }
 
 }

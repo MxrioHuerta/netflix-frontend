@@ -1,10 +1,10 @@
 $color_netflix: #e50914;
+$color_transparent_black: rgba(14, 14, 14, 0.7);
 
 .login {
   overflow: auto;
   position: relative;
   min-height: 100vh;
-  backdrop-filter: blur(5px);
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -34,12 +34,6 @@ $color_netflix: #e50914;
   filter: blur(4px);
 }
 
-.login-container {
-  background-color: rgba(14, 14, 14, 0.7);
-  border-radius: 2rem;
-  //background-color: yellow;
-}
-
 .login-title{
   color: $color_netflix;
   font-size: 50px;
@@ -48,54 +42,14 @@ $color_netflix: #e50914;
   font-style: normal;
 }
 
-.buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-}
-
-.register {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 52%;
-  margin: auto;
-  margin-top: 30px;
-  max-width: 350px;
-}
-
-.container {
-  padding-top: 5%;
+.login-container {
+  background-color: $color_transparent_black;
+  border-radius: 2rem;
   width: 35%;
   min-width: 325px;
-
-  .btn {
-    padding: 7px 20px;
-    color: white;
-    &:is(.btn-warning) {
-      color: unset;
-      font-size: 16px;
-    }
-    &:hover,
-    :focus {
-      font-weight: bold;
-    }
-    &.sign-in {
-      font-size: 18px;
-    }
-  }
-
-  span {
-    &.helper-text {
-      font-size: 11px;
-    }
-  }
-
-  p {
-    margin-top: 10px;
-    font-size: 20px;
-  }
-
 }
+
+.helper-text {
+  font-size: 11px;
+}
+

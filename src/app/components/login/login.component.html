@@ -12,11 +12,11 @@
         <input type="password" class="form-control" placeholder="Introduce your password" formControlName="password" help="La contraseña debe tener minimo 8 caracteres" autocomplete="off">
         <span class="helper-text text-white" data-error="wrong" data-success="right">* Password is required. Minimum length 6 characters</span>
       </div>
-      <div class="buttons mb-3">
+      <div class="mb-3 d-flex flex-row justify-content-center align-items-center gap-2">
         <input class="btn btn-danger sign-in" [disabled]="!formLogin.valid" type="submit" value="Login">
         <button class="btn btn btn-primary fw-bold" (click)="onClick()">Login With <i class="fab fa-google ms-1"></i></button>
       </div>
-      <div class="register">
+      <div class="register d-flex justify-content-center align-items-center w-100">
         <span class="text-white text-center fw-bold">Don't have an account yet? <a class="text-decoration-underline link-light" routerLink="/register">Sign up</a></span>
       </div>
     </form>

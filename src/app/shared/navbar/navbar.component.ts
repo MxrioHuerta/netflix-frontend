@@ -9,9 +9,6 @@ import { User } from 'firebase/auth';
   styleUrls: [ './navbar.component.scss' ]
 })
 export class NavbarComponent implements OnInit {
-  navBackground: any = {
-    'background-color': 'rgba(14,14,14,0.80)'
-  };
   loggedIn = false;
   constructor (private userService: UserService, private router: Router) { }
 
