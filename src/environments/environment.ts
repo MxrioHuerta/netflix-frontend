@@ -11,7 +11,8 @@ export const environment = {
     storageBucket: "netflix-mario-huerta.appspot.com",
     messagingSenderId: "715401499209",
     appId: "1:715401499209:web:2d250dfb0870e4551c6598"
-  }
+  },
+  theDBApiKey: "1a4ec3a45e1dac8ae9fcdf2c9589974b",
 };
 
 /*

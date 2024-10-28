@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   onSubmit () {
     this.userService.login(this.formLogin.value)
       .then((response: any) => {
-        console.log(response);
+        this.router.navigate([ '/home' ]);
       })
       .catch((error: any) => console.log(error));
   }
@@ -36,7 +36,6 @@ export class LoginComponent implements OnInit {
   onClick () {
     this.userService.loginWithGoogle()
       .then((response: any) => {
-        console.log(response);
         this.router.navigate([ '/home' ]);
       })
       .catch((error: any) => console.log(error));

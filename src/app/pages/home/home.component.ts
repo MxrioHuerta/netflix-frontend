@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   animationMovieResults?: Movie[] = [];
   comedyMovieResults?: Movie[] = [];
   documentaryMovieResults?: Movie[] = [];
-  sciencefictionMovieResults?: Movie[] = [];
+  scienceFictionMovieResults?: Movie[] = [];
   thrillerMovieResults?: Movie[] = [];
 
   constructor (private moviesService: MoviesService, private userService: UserService, private title: Title, private meta: Meta, private router: Router) { }
@@ -38,14 +38,12 @@ export class HomeComponent implements OnInit {
 
   trendingMovies () {
     this.moviesService.getTrendingMovies().subscribe((result) => {
-      console.log(result, 'trendingresult#');
       this.trendingMoviesResults = result.results;
     });
   }
 
   discoverMovies () {
     this.moviesService.getDiscoverMovies().subscribe((result) => {
-      console.log(result, 'discoverresult#');
       this.discoverMoviesResults = result.results;
     });
   }
@@ -82,7 +80,7 @@ export class HomeComponent implements OnInit {
 
   sciencefictionMovies () {
     this.moviesService.getScienceFictionMovies().subscribe((result) => {
-      this.sciencefictionMovieResults = result.results;
+      this.scienceFictionMovieResults = result.results;
     });
   }
 

@@ -6,6 +6,7 @@ import { MovieDetailsComponent } from './pages/movie-details/movie-details.compo
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { canActivate, redirectUnauthorizedTo  } from '@angular/fire/auth-guard';
+import {FavoriteMoviesComponent} from "./pages/favorite-movies/favorite-movies.component";
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
@@ -23,6 +24,11 @@ const routes: Routes = [
   {
     path: 'movie/:id',
     component: MovieDetailsComponent,
+    ...canActivate(() => redirectUnauthorizedTo([ '/login' ]))
+  },
+  {
+    path: 'favorites',
+    component: FavoriteMoviesComponent,
     ...canActivate(() => redirectUnauthorizedTo([ '/login' ]))
   },
   { path: '', pathMatch: 'full', redirectTo: '/home' },

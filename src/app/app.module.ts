@@ -16,6 +16,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
+import { FavoriteMoviesComponent } from './pages/favorite-movies/favorite-movies.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
     MoviesSliderComponent,
     LoginComponent,
     RegisterComponent,
+    FavoriteMoviesComponent,
   ],
   imports: [
     BrowserModule,

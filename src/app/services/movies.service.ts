@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { MovieDetails } from '../interfaces/movie-details';
 import { Movies } from '../interfaces/movies';
 import { Credits, Cast } from '../interfaces/credits';
+import { environment } from "../../environments/environment";
 
 
 @Injectable({
@@ -12,13 +13,12 @@ import { Credits, Cast } from '../interfaces/credits';
 export class MoviesService {
 
   private baseURL = "https://api.themoviedb.org/3";
-  private apikey = "06cc335abc6769f2ba982c824990faeb";
+  private apikey = environment.theDBApiKey;
   Movies!: Movies;
   Movie!: MovieDetails;
   Cast!: Credits;
 
   constructor (private http: HttpClient) { }
-
 
   sliderMovies (): Observable<Movies> {
     return this.http.get<Movies>(`${this.baseURL}/movie/now_playing?api_key=${this.apikey}`);
@@ -27,7 +27,6 @@ export class MoviesService {
   getDiscoverMovies (): Observable<Movies> {
     return this.http.get<Movies>(`${this.baseURL}/discover/movie?api_key=${this.apikey}&include_adult=false&include_video=true&page=1&`);
   }
-
 
   getTrendingMovies (): Observable<Movies> {
     return this.http.get<Movies>(`${this.baseURL}/trending/movie/week?api_key=${this.apikey}`);
@@ -53,7 +52,6 @@ export class MoviesService {
     return this.http.get<Movies>(`${this.baseURL}/discover/movie?api_key=${this.apikey}&with_genres=99`);
   }
 
-
   getScienceFictionMovies (): Observable<Movies> {
     return this.http.get<Movies>(`${this.baseURL}/discover/movie?api_key=${this.apikey}&with_genres=878`);
   }
@@ -61,7 +59,6 @@ export class MoviesService {
   getThrillerMovies (): Observable<Movies> {
     return this.http.get<Movies>(`${this.baseURL}/discover/movie?api_key=${this.apikey}&with_genres=53`);
   }
-
 
   getSearchMovie (id: any): Observable<Movies> {
     console.log(id, 'movie#');

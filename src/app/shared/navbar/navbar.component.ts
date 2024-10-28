@@ -9,21 +9,10 @@ import { User } from 'firebase/auth';
   styleUrls: [ './navbar.component.scss' ]
 })
 export class NavbarComponent implements OnInit {
-  navBackground: any;
+  navBackground: any = {
+    'background-color': 'rgba(14,14,14,0.80)'
+  };
   loggedIn = false;
-  @HostListener('document:scroll') scrollover () {
-    console.log(document.body.scrollTop, 'scrolllength#');
-
-    if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
-      this.navBackground = {
-        'background-color': '#0e0e0ede'
-      }
-    } else {
-      this.navBackground = {}
-    }
-  }
-
-
   constructor (private userService: UserService, private router: Router) { }
 
   ngOnInit (): void {
@@ -37,6 +26,6 @@ export class NavbarComponent implements OnInit {
       .then(() => {
         this.router.navigate([ '/login' ]);
       })
-      .catch(error => console.log(error));
+      .catch((error: any) => console.log(error));
   }
 }

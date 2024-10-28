@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import {Form, FormControl, FormGroup} from '@angular/forms';
 import { Meta, Title } from '@angular/platform-browser';
 import { MoviesService } from 'src/app/services/movies.service';
 
@@ -23,10 +23,11 @@ export class SearchComponent implements OnInit {
   onSubmit () {
     console.log(this.searchForm.value, 'searchform#');
     this.moviesService.getSearchMovie(this.searchForm.value).subscribe((result) => {
-      /* TODO: REFACTORING AND CONSOLE.LOG */
       console.log(result, 'searchmovie##');
-      this.searchResult = result.results;
-      this.searchForm.reset();
+      if (result.results.length > 0) {
+        this.searchResult = result.results;
+        this.searchForm?.reset();
+      }
     });
   }
 

@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <app-movies-slider></app-movies-slider>
 
 <section class="movies">
@@ -86,7 +87,7 @@
     <div class="row mt-4">
       <h3 class="text-white">Science-Fiction</h3>
       <div class="rowposter mt-3 p-2">
-        <ng-container *ngFor="let sf of sciencefictionMovieResults">
+        <ng-container *ngFor="let sf of scienceFictionMovieResults">
           <img src="https://image.tmdb.org/t/p/original/{{ sf.poster_path }}"
             class="rowimg largeposter" alt="..." [routerLink]="['/movie',sf.id]">
         </ng-container>

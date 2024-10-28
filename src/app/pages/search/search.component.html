@@ -1,4 +1,4 @@
-<div class="container mt-5 p-5">
+<div class="container p-2">
   <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
     <div class="row">
       <div class="mb-3 col-lg-10">
@@ -10,7 +10,7 @@
       </div>
     </div>
   </form>
-  <div class="row mt-5 results" *ngIf="searchResult.length > 0">
+  <div class="row mt-5 results" *ngIf="searchResult && searchResult.length > 0">
     <div class="col-lg-4" *ngFor="let s of searchResult">
       <div class="row">
         <div class="col-lg-3 mt-4 mb-4" *ngIf="s.poster_path || s.poster_path === null">
@@ -24,7 +24,7 @@
       </div>
     </div>
   </div>
-  <div class="row mt-5" *ngIf="searchResult.length == 0">
+  <div class="row mt-5" *ngIf="searchResult && searchResult.length == 0">
     <div class="col-lg-12">
       <h3 class="text-center fw-bold">Oops! No results to show. Try another movie!</h3>
     </div>

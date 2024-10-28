@@ -14,7 +14,6 @@ $background-carousel: #181818ab;
 }
 
 .carousel-caption {
-  padding: 20px 30px;
   background-color: $background-carousel;
   border: 1px solid $white-transparent;
   border-radius: 5px;
@@ -23,7 +22,7 @@ $background-carousel: #181818ab;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   h2 {
-    color: $red;
+    color: $white;
     font-weight: bold;
     font-size: 30px;
   }

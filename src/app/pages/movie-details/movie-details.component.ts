@@ -18,7 +18,6 @@ export class MovieDetailsComponent implements OnInit {
 
   ngOnInit (): void {
     let getParamId = this.router.snapshot.paramMap.get('id');
-    console.log(getParamId, 'getparamid#');
 
     this.getMovie(getParamId);
     this.getVideo(getParamId);
@@ -27,15 +26,12 @@ export class MovieDetailsComponent implements OnInit {
 
   getMovie (id: any) {
     this.moviesService.getMovieDetails(id).subscribe(async (result) => {
-      console.log(result, 'getmoviedetails#');
       this.getMovieDetailResult = await result;
 
-      // updatetags
       this.title.setTitle(`${this.getMovieDetailResult.original_title} | ${this.getMovieDetailResult.tagline}`);
       this.meta.updateTag({ name: 'title', content: this.getMovieDetailResult.original_title });
       this.meta.updateTag({ name: 'description', content: this.getMovieDetailResult.overview });
 
-      // facebook
       this.meta.updateTag({ property: 'og:type', content: "website" });
       this.meta.updateTag({ property: 'og:url', content: `` });
       this.meta.updateTag({ property: 'og:title', content: this.getMovieDetailResult.original_title });
@@ -47,7 +43,6 @@ export class MovieDetailsComponent implements OnInit {
 
   getVideo (id: any) {
     this.moviesService.getMovieVideo(id).subscribe((result) => {
-      console.log(result, 'getMovieVideo#');
       result.results.forEach((element: any) => {
         if (element.type == "Trailer") {
           this.getMovieVideoResult = element.key;
@@ -59,7 +54,6 @@ export class MovieDetailsComponent implements OnInit {
 
   getMovieCast (id: any) {
     this.moviesService.getMovieCast(id).subscribe((result) => {
-      console.log(result, 'movieCast#');
       this.getMovieCastResult = result.cast;
     });
   }
