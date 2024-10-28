@@ -13,9 +13,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MoviesSliderComponent } from './pages/movies-slider/movies-slider.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideAuth,getAuth } from '@angular/fire/auth';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { provideAuth, getAuth } from '@angular/fire/auth';
 import { FavoriteMoviesComponent } from './pages/favorite-movies/favorite-movies.component';
 
 @NgModule({

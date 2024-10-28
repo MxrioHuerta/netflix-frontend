@@ -1,26 +1,91 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { FavoritesMovies } from '../interfaces/favorites-movies';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {FavoritesMovies} from '../interfaces/favorites-movies';
+import {environment} from "../../environments/environment";
+import {Auth} from '@angular/fire/auth';
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class FavoriteMoviesService {
 
-  private baseURL = 'http://localhost:3000/api/favorites';
+  private baseURL = environment.backendUrl + '/favorite';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private auth: Auth) {
+  }
+
+
+  getUserToken() {
+    const user = this.auth.currentUser as any; // Obtiene el usuario autenticado
+    return user.accessToken;
+  }
 
   getFavoriteMovies(): Observable<FavoritesMovies[]> {
-    return this.http.get<FavoritesMovies[]>(this.baseURL);
+    const user = this.auth.currentUser; // Obtiene el usuario autenticado
+    const token = this.getUserToken()
+    console.log("ABC", token)
+    if (user) {
+      let headers = {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
+      return this.http.get<any[]>(`${this.baseURL}/${user.uid}`, {headers: headers}); // Envía el userId en la solicitud
+    } else {
+      return new Observable((observer) => {
+        observer.error('No authenticated user');
+      });
+    }
   }
 
-  addFavoriteMovie(movie: FavoritesMovies): Observable<FavoritesMovies> {
-    return this.http.post<FavoritesMovies>(this.baseURL, movie);
+  addFavorite(movieId: string, title: string, posterPath: string, overview: string): Observable<any> {
+    const user = this.auth.currentUser; // Obtiene el usuario autenticado
+    if (user) {
+      let headers = {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.getUserToken()}`
+      }
+      return this.http.post<any>(this.baseURL, {
+        userId: user.uid,
+        movieId: movieId,
+        title: title,
+        posterPath: posterPath,
+        overview: overview
+      }, {headers: headers}); // Envía el userId en la solicitud
+    } else {
+      return new Observable((observer) => {
+        observer.error('No authenticated user');
+      });
+    }
   }
 
-  deleteFavoriteMovie(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.baseURL}/${id}`);
+  removeFavorite(movieId: string): Observable<any> {
+    const user = this.auth.currentUser; // Obtiene el usuario autenticado
+    if (user) {
+      let headers = {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.getUserToken()}`
+      }
+      return this.http.delete<any>(`${this.baseURL}/${user.uid}/movie/${movieId}`, {headers: headers}); // Envía el userId en la solicitud
+    } else {
+      return new Observable((observer) => {
+        observer.error('No authenticated user');
+      });
+    }
+  }
+
+  getFavorite(movieId: string): Observable<any> {
+    const user = this.auth.currentUser; // Obtiene el usuario autenticado
+    if (user) {
+      let headers = {
+        'Content-Type': 'application /json',
+        'Authorization': `Bearer ${this.getUserToken()}`,
+      }
+      return this.http.get<any>(`${this.baseURL}/${user.uid}/movie/${movieId}`, {headers: headers});
+    } else {
+      return new Observable((observer) => {
+        observer.error('No authenticated user');
+      });
+    }
   }
 }

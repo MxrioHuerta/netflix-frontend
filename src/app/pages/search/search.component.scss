@@ -1,16 +1,25 @@
-$color_1: #ffffff;
+$color_1: white;
 $background-color_1: rgba(229, 10, 21, 0.95);
 
-button {
-  &:hover {
-    background-color: $background-color_1;
-    color: $color_1;
+
+form {
+  button {
+    &:hover {
+      background-color: $background-color_1;
+      color: $color_1;
+    }
   }
 }
+
+.btn-close {
+  background-color: white;
+}
+
 img {
   width: 100%;
   cursor: pointer;
 }
+
 h3,
 h5 {
   color: $color_1;
@@ -23,6 +32,7 @@ h5 {
 .form-control {
   background-color: #0000;
   color: white;
+
   &:focus {
     border-color: #7a050b;
     box-shadow: 0 0 0 .25rem rgba(229, 10, 21, 0.25)
@@ -30,8 +40,11 @@ h5 {
 }
 
 
-//@media only screen and (max-width: 991px) {
-//  .container {
-//    padding-top: 230px !important;
-//  }
-//}
+.modal-header {
+  background-color: rgb(24, 24, 24);
+}
+
+.modal-body {
+  background-color: #1d1c1c;
+}
+

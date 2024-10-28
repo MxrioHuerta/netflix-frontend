@@ -10,9 +10,8 @@
       <a class="btn btn-md btn-danger ms-1" href="https://www.themoviedb.org/video/play?key={{getMovieVideoResult}}"
          target="_blank">Watch trailer
       </a>
-      <a class="btn btn-md btn-success ms-1" href=""
-         target="_blank">Agregar a favoritos
-      </a>
+      <button *ngIf="!alreadyFavorite" class="btn btn-md btn-success ms-1" (click)="addFavorite()">Agregar a favoritos</button>
+      <span *ngIf="alreadyFavorite" class="text-success ms-4">Already in favorites</span>
 
       <div class="mt-4 p-4">
         <h2 class="text-white">Top Cast</h2>

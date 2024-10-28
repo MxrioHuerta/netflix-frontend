@@ -1,27 +1,57 @@
-# NetflixFrontend
+# Proyecto Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.18.
+Este proyecto de Angular 12 está configurado para ejecutarse en un contenedor Docker, incluyendo autenticación con Firebase.
 
-## Development server
+## Requisitos
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Antes de comenzar, asegúrate de tener instalados los siguientes programas en tu sistema:
 
-## Code scaffolding
+- [Docker](https://www.docker.com/get-started)
+- [Docker Compose](https://docs.docker.com/compose/install/)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Estructura de archivos
 
-## Build
+El proyecto utiliza dos archivos clave para la configuración de Docker:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Dockerfile**: Define la imagen y el entorno de ejecución de Angular dentro del contenedor.
+- **docker-compose.yml**: Configura el servicio, puertos y variables de entorno para Docker Compose.
 
-## Running unit tests
+## Instalación y Ejecución
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Paso 1: Clona el Repositorio
 
-## Running end-to-end tests
+```bash
+git clone https://github.com/MxrioHuerta/netflix-frontend.git
+cd netflix-frontend
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
+### Paso 2: Configura el .env de Firebase, The Movie Database y la url del backend en la raíz del proyecto
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```.dotenv
+THE_MOVIE_DB_API_KEY=your-tmdb-api-key
+
+FIREBASE_API_KEY=your-firebase-api-key
+FIREBASE_AUTH_DOMAIN=your-firebase-auth-domain
+FIREBASE_PROJECT_ID=your-firebase-project-id
+FIREBASE_STORAGE_BUCKET=your-firebase-storage-bucket
+FIREBASE_MESSAGING_SENDER_ID=your-firebase-messaging-sender-id
+FIREBASE_APP_ID=your-firebase-app-id
+
+BACKEND_URL=http://localhost:3000/api
+
+
+```
+
+### Paso 3: Ejecuta el Contenedor
+
+```bash
+docker-compose up --build
+```
+
+El comando `docker-compose up --build` compila la imagen de Angular y ejecuta el contenedor en el puerto `4200`.
+
+### Paso 4: Accede a la Aplicación
+
+Abre tu navegador y accede a `http://localhost:4200` para ver la aplicación Angular en ejecución.
+

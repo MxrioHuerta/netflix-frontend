@@ -13,6 +13,7 @@ export const environment = {
     appId: "1:715401499209:web:2d250dfb0870e4551c6598"
   },
   theDBApiKey: "1a4ec3a45e1dac8ae9fcdf2c9589974b",
+  backendUrl: "localhost:3000/api"
 };
 
 /*

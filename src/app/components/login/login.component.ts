@@ -41,11 +41,6 @@ export class LoginComponent implements OnInit {
       .catch((error: any) => console.log(error));
   }
 
-  /* checkcontrol for email in formLogin */
-  /* get email () {
-    return this.formLogin.get('email');
-  }
- */
   checkControl (controlName: string, errorName: string): boolean {
     return !!(this.formLogin.get(controlName)?.hasError(errorName) &&
       this.formLogin.get(controlName)?.touched);

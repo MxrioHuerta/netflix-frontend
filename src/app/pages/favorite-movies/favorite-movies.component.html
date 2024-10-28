@@ -4,17 +4,16 @@
   <div class="container text-center">
     <div class="row justify-content-center">
       <div class="movie-card col-3 px-0" *ngFor="let movie of favoriteMovies">
-        <img [src]="movie.posterPath" [alt]="movie.title" class="poster" />
+        <img src="https://image.tmdb.org/t/p/original/{{ movie.posterPath }}" [alt]="movie.title" class="poster" />
         <div class="movie-info">
           <h3 class="title">{{ movie.title }}</h3>
           <p class="overview">{{ movie.overview }}</p>
           <div class="buttons">
-            <button (click)="removeFromFavorites(movie.movieId)" class="btn btn-danger m-1">Quitar de la lista</button>
+            <button (click)="removeFavorite(movie.movieId)" class="btn btn-danger m-1">Remove</button>
             <a class="btn btn-m btn-warning m-1" routerLink="/movie/{{movie.movieId}}">See details</a>
           </div>
         </div>
       </div>
     </div>
   </div>
-
 </div>
